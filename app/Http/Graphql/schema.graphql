@@ -1,0 +1,28 @@
+type Query {
+    ping: PingThing!
+    users: [User!]!
+}
+
+type Mutation {
+    createUser(email: String!, name: String!, password: String!): User!
+}
+
+type PingThing {
+    messageOfTheDay: String!
+}
+
+type User {
+    id: ID!
+    username: String!
+    createdAt(format: DateFormat = RFC3339): String!
+    posts: [Post!]!
+}
+
+type Post {
+    title: String!
+}
+
+enum DateFormat {
+    RFC3339
+    RSS
+}
